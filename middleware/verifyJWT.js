@@ -18,3 +18,9 @@ module.exports.verifyJWT = async (req, res, next) => {
     }
   )
 };
+
+module.exports.connectDB = () => {
+  mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
+    console.log(`connected to the database at port ${PORT}`);
+  });
+}
