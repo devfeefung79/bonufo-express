@@ -69,11 +69,6 @@ module.exports.login = async (req, res) => {
   } else if (email) {
     searchCriteria = { email: email };
   }
-  else {
-    return res.status(401).send({
-      message: err.message
-    });
-  }
 
   await User.userModel.findOne(searchCriteria)
   .then(savedUser => {
@@ -90,6 +85,7 @@ module.exports.login = async (req, res) => {
     : res.status(401).send({
       message: 'No user found'
     });
+  
   if (match) {
     const accessToken = jwt.sign({ 
         '_id': foundUser._id,

@@ -63,7 +63,7 @@ const essayRoutes = require('./routes/essayRoutes');
 const feedbackRoutes = require('./routes/feedbackRoutes');
 
 app.use('/test', (req, res) => {
-  res.sendStatus(200).json({ message: 'get response' });
+  res.status(200).send({ message: 'get response', env: process.env.DB_CONNECTION });
 });
 
 app.use('/user', userRoutes);
