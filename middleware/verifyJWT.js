@@ -19,18 +19,3 @@ module.exports.verifyJWT = async (req, res, next) => {
     }
   )
 };
-
-module.exports.connectDB = async (req, res, next) => {
-  try {
-    await mongoose.connect(process.env.DB_CONNECTION, 
-      { useNewUrlParser: true, 
-        useUnifiedTopology: true,
-        serverSelectionTimeoutMS: 5000, 
-      });
-      next();
-  } catch (err) {
-    res.status(500).send({
-      dbStatus:mongoose.connection.readyState
-    });
-  }
-}

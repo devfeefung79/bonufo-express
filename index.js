@@ -63,11 +63,6 @@ const essayRoutes = require('./routes/essayRoutes');
 const feedbackRoutes = require('./routes/feedbackRoutes');
 
 const jwt = require('./middleware/verifyJWT');
-app.use('/test', jwt.connectDB,(req, res) => {
-  res.status(200).send({ message: 'get response', 
-    env: process.env.DB_CONNECTION ,
-    dbStatus:mongoose.connection.readyState});
-});
 
 app.use('/user', userRoutes);
 app.use('/question', questionRoutes);
