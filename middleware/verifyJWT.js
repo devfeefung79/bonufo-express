@@ -21,9 +21,14 @@ module.exports.verifyJWT = async (req, res, next) => {
 };
 
 module.exports.connectDB = async (req, res, next) => {
-  let conn = mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true,serverSelectionTimeoutMS:5000 }, () => {
-    console.log(`connected to the database at port ${PORT}`);
-  }).then(() => mongoose);
-  await conn;
-  next();
+  try {
+    await mongoose.connect(process.env.DB_CONNECTION, 
+      { useNewUrlParser: true, 
+        useUnifiedTopology: true,
+        serverSelectionTimeoutMS:5000 
+      });
+      next();
+  } catch (err) {
+    return res.sendStatus(500);
+  }
 }
