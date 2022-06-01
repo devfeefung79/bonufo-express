@@ -43,11 +43,14 @@ const options = {
 
 const specs = swaggerJsdoc(options);
 
+const allowedDomains = ["https://bonufo-react.vercel.app/"]
+
 var corsOptions = {
-  origin: "http://localhost:3000"
+  origin: allowedDomains,
+  credentials: true
 };
 
-//app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
