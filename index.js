@@ -62,6 +62,10 @@ const questionRoutes = require('./routes/questionRoutes');
 const essayRoutes = require('./routes/essayRoutes');
 const feedbackRoutes = require('./routes/feedbackRoutes');
 
+app.use('/test', (req, res) => {
+  res.sendStatus(200).json({ message: 'get response' });
+});
+
 app.use('/user', userRoutes);
 app.use('/question', questionRoutes);
 app.use('/essay', essayRoutes);
