@@ -43,11 +43,11 @@ const options = {
 
 const specs = swaggerJsdoc(options);
 
-const allowedDomains = ["https://bonufo-react.vercel.app/"]
+const allowedDomains = ["https://bonufo-react.vercel.app"]
 
 var corsOptions = {
   origin: allowedDomains,
-  credentials: true
+  optionSuccessStatus: 200
 };
 
 app.use(cors(corsOptions));
