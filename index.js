@@ -70,9 +70,9 @@ app.use('/essay', essayRoutes);
 app.use('/feedback', feedbackRoutes);
 
 //connect to db
-// mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
-//   console.log(`connected to the database at port ${PORT}`);
-// });
+mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
+  console.log(`connected to the database at port ${PORT}`);
+});
 
 //listening to the server
 app.listen(PORT);
