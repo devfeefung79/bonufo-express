@@ -25,10 +25,12 @@ module.exports.connectDB = async (req, res, next) => {
     await mongoose.connect(process.env.DB_CONNECTION, 
       { useNewUrlParser: true, 
         useUnifiedTopology: true,
-        serverSelectionTimeoutMS:5000 
+        serverSelectionTimeoutMS: 5000, 
       });
       next();
   } catch (err) {
-    return res.sendStatus(500);
+    res.status(500).send({
+      dbStatus:mongoose.connection.readyState
+    });
   }
 }

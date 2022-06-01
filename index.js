@@ -62,8 +62,11 @@ const questionRoutes = require('./routes/questionRoutes');
 const essayRoutes = require('./routes/essayRoutes');
 const feedbackRoutes = require('./routes/feedbackRoutes');
 
-app.use('/test', (req, res) => {
-  res.status(200).send({ message: 'get response', env: process.env.DB_CONNECTION });
+const jwt = require('./middleware/verifyJWT');
+app.use('/test', jwt.connectDB,(req, res) => {
+  res.status(200).send({ message: 'get response', 
+    env: process.env.DB_CONNECTION ,
+    dbStatus:mongoose.connection.readyState});
 });
 
 app.use('/user', userRoutes);
@@ -72,9 +75,9 @@ app.use('/essay', essayRoutes);
 app.use('/feedback', feedbackRoutes);
 
 //connect to db
-mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
-  console.log(`connected to the database at port ${PORT}`);
-});
+// mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
+//   console.log(`connected to the database at port ${PORT}`);
+// });
 
 //listening to the server
 app.listen(PORT);
