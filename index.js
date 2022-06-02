@@ -50,7 +50,7 @@ const swaggerOptions = {
 };
 
 const swaggerSpecs = swaggerJsdoc(swaggerOptions);
-app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerSpecs, { explorer: true }));
+app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerSpecs, { explorer: true }));
 
 //import routes
 const userRoutes = require('./routes/userRoutes');
