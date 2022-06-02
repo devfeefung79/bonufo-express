@@ -4,31 +4,6 @@ const Topic = require("../models/topicModel");
 const Question = require("../models/questionModel");
 const SavedQuestion = require("../models/savedQuestionModel");
 
-//Not Applicable
-module.exports.addQuestion = (req, res) => {
-  if (!req.body.question) {
-    res.status(400).send({ message: "Content can not be empty!" });
-    return;
-  }
-  const newQuestion = new Question({
-    topic: req.body.topic,
-    questionType: req.body.questionType,
-    relatedExam: req.body.relatedExam,
-    question: req.body.question,
-  });
-  newQuestion
-    .save(newQuestion)
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while creating the Tutorial."
-      });
-    });
-}
-
 module.exports.getQuestions = (req, res) => {
   Question.questionModel.find({}).lean().then(data => {
     res.send(data);

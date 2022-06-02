@@ -3,18 +3,26 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUi = require('swagger-ui-express');
-//const swaggerDocument = require('./swagger.json');
 const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv/config');
 
-//middlewares
-//app.use(auth);
-
 const app = express();
 const PORT = 3001;
 
-const options = {
+const allowedDomains = ['https://bonufo-react.vercel.app', 'http://localhost:3000']
+
+const corsOptions = {
+  origin: allowedDomains,
+  optionSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
+app.use(cookieParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+const swaggerOptions = {
   definition: {
     openapi: "3.0.0",
     info: {
@@ -41,28 +49,14 @@ const options = {
   apis: ["./routes/essayRoutes.js", "./routes/feedbackRoutes.js", "./routes/questionRoutes.js", "./routes/userRoutes.js"],
 };
 
-const specs = swaggerJsdoc(options);
-
-const allowedDomains = ["https://bonufo-react.vercel.app"]
-
-var corsOptions = {
-  origin: allowedDomains,
-  optionSuccessStatus: 200
-};
-
-app.use(cors(corsOptions));
-app.use(cookieParser());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs, { explorer: true }));
+const swaggerSpecs = swaggerJsdoc(swaggerOptions);
+app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerSpecs, { explorer: true }));
 
 //import routes
 const userRoutes = require('./routes/userRoutes');
 const questionRoutes = require('./routes/questionRoutes');
 const essayRoutes = require('./routes/essayRoutes');
 const feedbackRoutes = require('./routes/feedbackRoutes');
-
-const jwt = require('./middleware/verifyJWT');
 
 app.use('/user', userRoutes);
 app.use('/question', questionRoutes);
