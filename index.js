@@ -10,7 +10,7 @@ require('dotenv/config');
 const app = express();
 const PORT = 3001;
 
-const allowedDomains = ['https://bonufo-react.vercel.app', 'http://localhost:3000']
+const allowedDomains = ['https://bonufo-react.vercel.app']
 
 const corsOptions = {
   origin: allowedDomains,
