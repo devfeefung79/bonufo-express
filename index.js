@@ -14,7 +14,8 @@ const allowedDomains = ['https://bonufo-react.vercel.app']
 
 const corsOptions = {
   origin: allowedDomains,
-  optionSuccessStatus: 200
+  optionSuccessStatus: 200,
+  credentials: true
 };
 
 app.use(cors(corsOptions));
