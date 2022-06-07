@@ -19,6 +19,12 @@ router.post('/add', jwt.verifyJWT, feedbackController.addFeedback);
  *   get:
  *     summary: Retrieve a list of feedback by id
  *     description: Retrieve a list of feedback by id
+ *     parameters:
+ *     - in: path
+ *       name: id
+ *       required: true
+ *       schema:
+ *         type: string
 */
 router.get('/:id', jwt.verifyJWT, feedbackController.getFeedbackById);
 
@@ -28,6 +34,12 @@ router.get('/:id', jwt.verifyJWT, feedbackController.getFeedbackById);
  *   get:
  *     summary: Retrieve a list of feedback by user id
  *     description: Retrieve a list of feedback by user id
+ *     parameters:
+ *     - in: path
+ *       name: id
+ *       required: true
+ *       schema:
+ *         type: string
 */
 router.get('/by-user/:id', jwt.verifyJWT, feedbackController.getFeedbackByUserId);
 
@@ -37,6 +49,12 @@ router.get('/by-user/:id', jwt.verifyJWT, feedbackController.getFeedbackByUserId
  *   get:
  *     summary: Retrieve a list of feedback by essay id
  *     description: Retrieve a list of feedback by essay id
+ *     parameters:
+ *     - in: path
+ *       name: id
+ *       required: true
+ *       schema:
+ *         type: string
 */
 router.get('/by-essay/:id', jwt.verifyJWT, feedbackController.getFeedbackByEssayId);
 

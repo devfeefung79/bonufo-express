@@ -10,6 +10,43 @@ const router = Router();
  *   post:
  *     summary: Create a new essay object with request
  *     description: Create a new essay object with request
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               questionId:
+ *                 type: string
+ *               question:
+ *                 type: string
+ *               submitterId:
+ *                 type: string
+ *               submitterName:
+ *                 type: string
+ *               submittedDateTime:
+ *                 type: object
+ *               state:
+ *                 type: string
+ *               markingSchemeId:
+ *                 type: string
+ *               markingSchemeName:
+ *                 type: string
+ *               content:
+ *                 type: string
+ *               numberOfFeedbacks:
+ *                 type: integer
+ *               wordCount:
+ *                 type: integer
+ *     responses:
+ *       '200':
+ *          description: Created
+ *       '400':
+ *          description: Request Body content is empty
+ *       '500':
+ *          description: Internal Error
+ * 
 */
 router.post('/add', jwt.verifyJWT, essayController.addEssay);
 
@@ -19,6 +56,12 @@ router.post('/add', jwt.verifyJWT, essayController.addEssay);
  *   get:
  *     summary: Retrieve an essay object by id
  *     description: Retrieve an essay object by id
+ *     parameters:
+ *     - in: path
+ *       name: id
+ *       required: true
+ *       schema:
+ *         type: string
 */
 router.get('/:id', jwt.verifyJWT, essayController.getEssayById);
 
@@ -28,6 +71,12 @@ router.get('/:id', jwt.verifyJWT, essayController.getEssayById);
  *   get:
  *     summary: Retrieve a list of essay by user id
  *     description: Retrieve a list of essay by user id
+ *     parameters:
+ *     - in: path
+ *       name: id
+ *       required: true
+ *       schema:
+ *         type: string
 */
 router.get('/by-user/:id', jwt.verifyJWT, essayController.getEssayByUserId);
 
@@ -37,6 +86,12 @@ router.get('/by-user/:id', jwt.verifyJWT, essayController.getEssayByUserId);
  *   get:
  *     summary: Retrieve a list of essay by question id
  *     description: Retrieve a list of essay by question id
+ *     parameters:
+ *     - in: path
+ *       name: id
+ *       required: true
+ *       schema:
+ *         type: string
 */
 router.get('/by-question/:id', jwt.verifyJWT, essayController.getEssayByQuestionId);
 
@@ -46,6 +101,12 @@ router.get('/by-question/:id', jwt.verifyJWT, essayController.getEssayByQuestion
  *   get:
  *     summary: Retrieve all marking schemes available
  *     description: Retrieve all marking schemes available
+ *     parameters:
+ *     - in: path
+ *       name: id
+ *       required: true
+ *       schema:
+ *         type: string
 */
 router.get('/marking-scheme/all', jwt.verifyJWT, essayController.getMarkingSchemes);
 
@@ -55,6 +116,12 @@ router.get('/marking-scheme/all', jwt.verifyJWT, essayController.getMarkingSchem
  *   get:
  *     summary: Retrieve a marking scheme by id
  *     description: Retrieve a marking scheme by id
+ *     parameters:
+ *     - in: path
+ *       name: id
+ *       required: true
+ *       schema:
+ *         type: string
 */
 router.get('/marking-scheme/:id', jwt.verifyJWT, essayController.getMarkingSchemeById);
 

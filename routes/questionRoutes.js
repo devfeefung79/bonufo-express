@@ -55,6 +55,12 @@ router.post('/search', jwt.verifyJWT, questionController.searchQuestions);
  *   get:
  *     summary: Retrieve a question with id
  *     description: Retrieve a question with id
+ *     parameters:
+ *     - in: path
+ *       name: id
+ *       required: true
+ *       schema:
+ *         type: string
 */
 router.get('/:id', jwt.verifyJWT, questionController.getQuestionById);
 
@@ -64,6 +70,12 @@ router.get('/:id', jwt.verifyJWT, questionController.getQuestionById);
  *   get:
  *     summary: Retrieve a list of saved questions with user id
  *     description: Retrieve a list of saved questions with user id
+ *     parameters:
+ *     - in: path
+ *       name: userId
+ *       required: true
+ *       schema:
+ *         type: string
 */
 router.get('/saved-questions/:userId', jwt.verifyJWT, questionController.getSavedQuestions);
 
@@ -71,8 +83,8 @@ router.get('/saved-questions/:userId', jwt.verifyJWT, questionController.getSave
  * @swagger
  * /question/save:
  *   post:
- *     summary: Save a quqestion
- *     description: Save a quqestion
+ *     summary: Save a question
+ *     description: Save a question
 */
 router.post('/save', jwt.verifyJWT, questionController.addSavedQuestion);
 
@@ -82,6 +94,17 @@ router.post('/save', jwt.verifyJWT, questionController.addSavedQuestion);
  *   delete:
  *     summary: Unsave a question
  *     description: Unsave a question
+ *     parameters:
+ *     - in: path
+ *       name: userId
+ *       required: true
+ *       schema:
+ *         type: string
+ *     - in: path
+ *       name: questionId
+ *       required: true
+ *       schema:
+ *         type: string
 */
 router.delete('/unsave/:userId/:questionId', jwt.verifyJWT, questionController.deleteSavedQuestion);
 

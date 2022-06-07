@@ -123,7 +123,9 @@ module.exports.getAccessToken = async (req, res) => {
 
   const cookies = req.cookies;
   if (!cookies?.jwt) {
-    return res.status(401);
+    return res.status(401).send({
+      message: 'No jwt found'
+    });
   }
   
   const refreshToken = cookies.jwt;
@@ -139,7 +141,9 @@ module.exports.getAccessToken = async (req, res) => {
     })
 
   if (!foundUser) {
-    return res.sendStatus(403);
+    res.status(401).send({
+      message: 'No user found'
+    });
   }
 
   jwt.verify(
@@ -147,7 +151,9 @@ module.exports.getAccessToken = async (req, res) => {
     process.env.REFRESH_TOKEN_SECRET,
     (err, decoded) => {
       if (err) {
-        return res.sendStatus(403);
+        res.status(401).send({
+          message: 'Invaild token'
+        });
       }
       const accessToken = jwt.sign({ 
         '_id': foundUser._id,
