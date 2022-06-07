@@ -109,7 +109,7 @@ module.exports.login = async (req, res) => {
     User.userModel.findByIdAndUpdate(foundUser._id, { refreshToken : refreshToken }, { useFindAndModify: false })
       .then(() => {
         res.setHeader('Access-Control-Allow-Credentials', true);
-        res.cookie('jwt', refreshToken, {domain: '.bonufo-react.vercel.app', httpOnly: true, maxAge: 24 * 60 * 60 * 1000, secure: true, domain});
+        res.cookie('jwt', refreshToken, {domain: 'https://bonufo-react.vercel.app', httpOnly: true, maxAge: 24 * 60 * 60 * 1000, secure: true, domain});
         res.json({ accessToken });
       })
       .catch(err => {
