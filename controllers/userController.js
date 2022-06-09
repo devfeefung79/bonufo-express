@@ -59,7 +59,7 @@ module.exports.signup = async (req, res) => {
 module.exports.login = async (req, res) => {
   const { username, email, password } = req.body;
   if ((!username && !email) || !password) {
-    return res.status(400).send({ 'message' : 'Fields are not complete' });
+    res.status(400).send({ 'message' : 'Fields are not complete' });
   }
 
   let foundUser;
@@ -75,56 +75,66 @@ module.exports.login = async (req, res) => {
     foundUser = savedUser
   })
   .catch(err => {
-    return res.status(401).send({
+    res.status(401).send({
       message: 'No user found'
     });
   })
 
-  const match = foundUser ? 
-    await bcrypt.compare(password, foundUser.password)
-    : res.status(401).send({
+  if (foundUser) {
+    const match = await bcrypt.compare(password, foundUser.password);
+  
+    if (match) {
+      const accessToken = jwt.sign({ 
+          '_id': foundUser._id,
+          'username' : foundUser.username,
+          'email': foundUser.email,
+          'role': foundUser.role
+        },
+        process.env.ACCESS_TOKEN_SECRET,
+        { expiresIn: '30m' }
+      );
+      const refreshToken = jwt.sign({ 
+          '_id': foundUser._id,
+          'username' : foundUser.username,
+          'email': foundUser.email,
+          'role': foundUser.role
+        },
+        process.env.REFRESH_TOKEN_SECRET,
+        { expiresIn: '15d' }
+      );
+
+      User.userModel.findByIdAndUpdate(foundUser._id, { refreshToken : refreshToken }, { useFindAndModify: false })
+        .then(() => {
+          res.setHeader('Access-Control-Allow-Credentials', true);
+          res.cookie('jwt', refreshToken, {sameSite: 'None', httpOnly: true, maxAge: 24 * 60 * 60 * 1000, secure: true});
+          res.json({ accessToken });
+        })
+        .catch(err => {
+          res.status(401).send({
+            message: err.message
+          });
+        })
+        
+    }
+    else {
+      res.status(401).send({
+        message: 'Invalid password'
+      });
+    }
+
+  }
+  else {
+    res.status(401).send({
       message: 'No user found'
     });
-  
-  if (match) {
-    const accessToken = jwt.sign({ 
-        '_id': foundUser._id,
-        'username' : foundUser.username,
-        'email': foundUser.email,
-        'role': foundUser.role
-      },
-      process.env.ACCESS_TOKEN_SECRET,
-      { expiresIn: '30m' }
-    );
-    const refreshToken = jwt.sign({ 
-        '_id': foundUser._id,
-        'username' : foundUser.username,
-        'email': foundUser.email,
-        'role': foundUser.role
-      },
-      process.env.REFRESH_TOKEN_SECRET,
-      { expiresIn: '15d' }
-    );
-
-    User.userModel.findByIdAndUpdate(foundUser._id, { refreshToken : refreshToken }, { useFindAndModify: false })
-      .then(() => {
-        res.setHeader('Access-Control-Allow-Credentials', true);
-        res.cookie('jwt', refreshToken, {sameSite: 'None', httpOnly: true, maxAge: 24 * 60 * 60 * 1000, secure: true});
-        res.json({ accessToken });
-      })
-      .catch(err => {
-        res.status(401).send({
-          message: err.message
-        });
-      })
-    }
+  }
 }
 
 module.exports.getAccessToken = async (req, res) => {
 
   const cookies = req.cookies;
   if (!cookies?.jwt) {
-    return res.status(401).send({
+    res.status(401).send({
       message: 'No jwt found'
     });
   }
@@ -173,7 +183,7 @@ module.exports.getAccessToken = async (req, res) => {
 module.exports.logout = async (req, res) => {
   const cookies = req.cookies;
   if (!cookies?.jwt) {
-    return res.sendStatus(204);
+    res.status(204).send();
   }
   
   let foundUser;
@@ -189,11 +199,11 @@ module.exports.logout = async (req, res) => {
     
   if (!foundUser) {
     res.clearCookie('jwt', { httpOnly: true });
-    return res.sendStatus(204);
+    return res.status(204).send();
   }
   User.userModel.findByIdAndUpdate(foundUser._id, { $unset: { refreshToken : "" } });
   res.clearCookie('jwt', { httpOnly: true });
-  res.sendStatus(204);
+  res.status(204).send();
 }
 
 module.exports.getUserById = (req, res) => {
