@@ -27,31 +27,73 @@ const swaggerOptions = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "BONUFO Express API with Swagger",
-      version: "0.1.0",
+      title: "BONUFO API with Swagger",
+      version: "1.0.0",
       description:
-        "This is a simple CRUD API application made with Express and documented with Swagger",
-      license: {
+        "This is an English Writing Response API application made with Express and documented with Swagger",
+      contact: {
+        "name": "Feena Fung",
+        "url": "https://github.com/devfeefung79",
+        "email": "devfeefung79@gmail.com"
+      },
+        license: {
         name: "MIT",
         url: "https://spdx.org/licenses/MIT.html",
-      },
-      contact: {
-        name: "LogRocket",
-        url: "https://logrocket.com",
-        email: "info@email.com",
       },
     },
     servers: [
       {
         url: "http://localhost:3001/",
+        description: "Local server"
       },
+      {
+        url: "https://bonufo-express.vercel.app/",
+        description: "Production server"
+      }
     ],
+    tags: [
+      {
+        name: 'Essay',
+        description: 'Requests associated with writing essays responding to the questions'
+      },
+      {
+        name: 'Feedback',
+        description: 'Requests associated with giving feedbacks to essays'
+      },
+      {
+        name: 'Question',
+        description: 'Requests associated with questions on the platform'
+      },
+      {
+        name: 'User',
+        description: 'Requests associated with user accounts'
+      },
+    ]
   },
-  apis: ["./routes/essayRoutes.js", "./routes/feedbackRoutes.js", "./routes/questionRoutes.js", "./routes/userRoutes.js"],
+  apis: ["./routes/*.js"],
+  components: {
+    schemas: {
+      UserLogin: {
+        type: 'object',
+        required: ['username', 'password'],
+        properties: {
+          username: { type: 'string', example: 'davidkong12'},
+          password: { type: 'string', example: 'pass1234'}
+        },
+      },
+    },
+  },
+  securityDefinitions: {
+    BearerAuth: {
+      type: 'apiKey',
+      in: 'header',
+      name: 'Authorization',
+    },
+  },
 };
 
 const swaggerSpecs = swaggerJsdoc(swaggerOptions);
-app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerSpecs, { explorer: true }));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 
 //import routes
 const userRoutes = require('./routes/userRoutes');
