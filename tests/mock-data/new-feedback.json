@@ -1,0 +1,19 @@
+{
+  "essayId": "628bf0f8242f7147acd2ebf7",
+  "essay": "This is a sample essay",
+  "submitterId": "65e16c81b60bbe01e82bacdd",
+  "submitterName": "davidkong2",
+  "sections": [
+    {
+      "sequence": 1,
+      "description": "Content and Coherence",
+      "supplementaryText": "Number of ideas, Quality of ideas, Organization of ideas, Examples and supporting details",
+      "weighting": 1,
+      "fullScore": 12,
+      "score": 10,
+      "comment": "Suit the topic"
+    }
+  ],
+  "overallComment": "Good",
+  "totalScore": 9
+}

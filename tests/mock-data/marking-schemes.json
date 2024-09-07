@@ -1,0 +1,61 @@
+[
+  {
+		"_id": "6289a2ecfca14c127cc5e24e",
+		"name": "IELTS General Training Task 2",
+		"minWords": 250,
+		"relatedExam": [
+			{
+				"_id": "62704496284c257466f0f8fb",
+				"label": "IELTS General Training"
+			}
+		],
+		"sections": [
+			{
+				"sequence": 1,
+				"description": "Task Response",
+				"supplementaryText": "In both IELTS Academic and IELTS General Training versions, Task 2 requires test takers to formulate and develop a position in relation to a question or statement. Ideas should be supported by evidence, and examples may be drawn from the test takers’ own experience. Responses must be at least 250 words in length. Scripts under the required minimum word limit will be penalised.",
+				"weighting": 1,
+				"fullScore": 9
+			},
+			{
+				"sequence": 2,
+				"description": "Coherence and Cohesion",
+				"supplementaryText": "This assesses the overall clarity and fluency of the message: how the response organises and links information, ideas and language. Coherence refers to the linking of ideas through logical sequencing. Cohesion refers to the varied and appropriate use of cohesive devices (for example, logical connectors, pronouns and conjunctions) to assist in making the conceptual and referential relationships between and within sentences clear.",
+				"weighting": 1,
+				"fullScore": 9
+			},
+			{
+				"sequence": 3,
+				"description": "Lexical Resource",
+				"supplementaryText": "This refers to the range of vocabulary the test takers have used and the accuracy and appropriacy of use in terms of the specific task.",
+				"weighting": 1,
+				"fullScore": 9
+			},
+			{
+				"sequence": 4,
+				"description": "Grammatical Range and Accuracy",
+				"supplementaryText": "This refers to the range and accurate use of grammar, as manifested in the test takers’ sentence writing.",
+				"weighting": 1,
+				"fullScore": 9
+			}
+		],
+		"calculationMode": "Mean",
+		"totalFullScore": 9
+	},
+  {
+		"_id": "6289a2ecfca14c127cc5e253",
+		"name": "TOEFL Independent Writing Task",
+		"maxWords": 300,
+		"relatedExam": [
+			{
+				"_id": "62704496284c257466f0f8fd",
+				"label": "TOEFL iBT"
+			},
+			{
+				"_id": "62704496284c257466f0f8fe",
+				"label": "TOEFL PBT"
+			}
+		],
+		"totalFullScore": 5
+	}
+]

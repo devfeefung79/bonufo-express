@@ -1,10 +1,4 @@
-//import topicSchema from './topicModel/topicSchema';
-
 const mongoose = require('mongoose');
-
-const topic = require('./topicModel');
-const questionType = require('./questionTypeModel');
-const exam = require('./examModel.js');
 
 const questionSchema = new mongoose.Schema({
   topic: {

@@ -1,0 +1,55 @@
+[
+  {
+    "_id": "629686c30a1fdd375c370ebe",
+    "essayId": "628bf0f8242f7147acd2ebf7",
+    "essay": "Dear Mr. Smith,\nWhile I really appreciate your offer on the job training, I would like to keep the vacation policy for the following three reasons:\nFirstly, I believe this training will not only benefit me but also the company as I will be better equipped for my job. Thus it is an extension of work and should not be counted as a vacation, which is personal time.\nSecondly, as a senior employee with a family, the vacation time is when I spend the days building relationships with my wife and children. Converting them into training would be hard on my family as they will not like to see me less. \nAnd finally, while being at a beachside hotel is very inviting, I prefer learning in a more conducive environment, away from distractions like crowds and heat. I believe a training course at a local university will be a better fit for me.\nI have all the confidence that you will make the right decision. Please let me know if you need my help talking to the other employees about this issue.\nKind regards,\nLarry",
+    "submitterId": "62959b87f7781d5bb0abdc9f",
+    "submitterName": "feenafung7295",
+    "submittedDateTime": "2022-05-31T21:21:07.210Z",
+    "sections": [
+      {
+        "_id": "629686c30a1fdd375c370ebf",
+        "sequence": 1,
+        "description": "Content and Coherence",
+        "supplementaryText": "Number of ideas, Quality of ideas, Organization of ideas, Examples and supporting details",
+        "weighting": 1,
+        "fullScore": 12,
+        "comment": "Suit the topic",
+        "score": 10
+      },
+      {
+        "_id": "629686c30a1fdd375c370ec0",
+        "sequence": 2,
+        "description": "Vocabulary",
+        "supplementaryText": "Word choice, Suitable use of words and phrases, Range of words and phrases, Precision and accuracy",
+        "weighting": 1,
+        "fullScore": 12,
+        "comment": "The variety of vocabulary is limited",
+        "score": 8
+      },
+      {
+        "_id": "629686c30a1fdd375c370ec1",
+        "sequence": 3,
+        "description": "Readability",
+        "supplementaryText": "Format and paragraphing, Connectors and transitions, Grammar and sentence structure, Spelling and punctuation",
+        "weighting": 1,
+        "fullScore": 12,
+        "comment": "Need to improve the structure, split the content into several paragraph",
+        "score": 7
+      },
+      {
+        "_id": "629686c30a1fdd375c370ec2",
+        "sequence": 4,
+        "description": "Task Fulfillment",
+        "supplementaryText": "Relevance, Completeness, Tone, Word count",
+        "weighting": 1,
+        "fullScore": 12,
+        "comment": "Respond to the question, many points",
+        "score": 9
+      }
+    ],
+    "overallComment": "It is good, but still need improvement, keep going.",
+    "totalScore": 8.5,
+    "__v": 0
+  }
+]

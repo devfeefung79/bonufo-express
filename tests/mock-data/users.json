@@ -1,0 +1,26 @@
+[
+  {
+    "_id": "1",
+    "username": "feenafung72",
+    "email": "feenafung72@gmail.com",
+    "password": "pass1234",
+    "role": "Learner",
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjcxZWNjOTc1YjMyYzM4NzRjZGFiODkiLCJ1c2VybmFtZSI6ImZlZW5hZnVuZzcyIiwiZW1haWwiOiJmZWVuYWZ1bmc3MkBnbWFpbC5jb20iLCJyb2xlIjoiTGVhcm5lciIsImlhdCI6MTY1NDEwODY5MywiZXhwIjoxNjU1NDA0NjkzfQ.2cYmGdTTmtobEZlW-M8ubi69KSBUVKMpfdfqUGtD4rA"
+  },
+  {
+    "_id": "2",
+    "username": "davidkong2",
+    "email": "davidkong2@gmail.com",
+    "password": "test_password",
+    "role": "Tutor",
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjcxZWNjOTc1YjMyYzM4NzRjZGFiODkiLCJ1c2VybmFtZSI6ImZlZW5hZnVuZzcyIiwiZW1haWwiOiJmZWVuYWZ1bmc3MkBnbWFpbC5jb20iLCJyb2xlIjoiTGVhcm5lciIsImlhdCI6MTY1NDEwODY5MywiZXhwIjoxNjU1NDA0NjkzfQ.2cYmGdTTmtobEZlW-M8ubi69KSBUVKMpfdfqUGtD4rA"
+  },
+  {
+    "_id": "3",
+    "username": "emily11",
+    "email": "emily11@gmail.com",
+    "password": "pass12345678",
+    "role": "Learner",
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjcxZWNjOTc1YjMyYzM4NzRjZGFiODkiLCJ1c2VybmFtZSI6ImZlZW5hZnVuZzcyIiwiZW1haWwiOiJmZWVuYWZ1bmc3MkBnbWFpbC5jb20iLCJyb2xlIjoiTGVhcm5lciIsImlhdCI6MTY1NDEwODY5MywiZXhwIjoxNjU1NDA0NjkzfQ.2cYmGdTTmtobEZlW-M8ubi69KSBUVKMpfdfqUGtD4rA"
+  }
+]

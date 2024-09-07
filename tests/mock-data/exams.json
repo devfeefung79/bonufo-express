@@ -1,0 +1,22 @@
+[
+	{
+		"_id": "62704496284c257466f0f8fb",
+		"label": "IELTS General Training"
+	},
+	{
+		"_id": "62704496284c257466f0f8fc",
+		"label": "IELTS Academic"
+	},
+	{
+		"_id": "62704496284c257466f0f8fe",
+		"label": "TOEFL PBT"
+	},
+	{
+		"_id": "62704496284c257466f0f8fd",
+		"label": "TOEFL iBT"
+	},
+	{
+		"_id": "62899829fca14c127cc5e244",
+		"label": "CELPIP"
+	}
+]

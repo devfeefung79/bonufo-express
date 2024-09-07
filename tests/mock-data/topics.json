@@ -1,0 +1,30 @@
+[
+  {
+		"_id": "62704465284c257466f0f8de",
+		"label": "Environment"
+	},
+	{
+		"_id": "62704465284c257466f0f8d8",
+		"label": "Employment"
+	},
+	{
+		"_id": "62704465284c257466f0f8da",
+		"label": "Government"
+	},
+	{
+		"_id": "62704465284c257466f0f8df",
+		"label": "Technology"
+	},
+	{
+		"_id": "62704465284c257466f0f8e0",
+		"label": "Health"
+	},
+	{
+		"_id": "62704465284c257466f0f8e1",
+		"label": "Society"
+	},
+	{
+		"_id": "62704465284c257466f0f8e5",
+		"label": "Family and Children"
+	}
+]

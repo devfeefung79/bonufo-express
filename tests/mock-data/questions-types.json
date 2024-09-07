@@ -1,0 +1,22 @@
+[
+	{
+		"_id": "6270445b284c257466f0f8ce",
+		"label": "Preference"
+	},
+	{
+		"_id": "6270445b284c257466f0f8cd",
+		"label": "Agree or Disagree"
+	},
+	{
+		"_id": "6270445b284c257466f0f8cf",
+		"label": "Description / Explanation"
+	},
+	{
+		"_id": "6270445b284c257466f0f8d0",
+		"label": "If / Imaginary"
+	},
+	{
+		"_id": "6270445b284c257466f0f8d1",
+		"label": "Compare & Contrast"
+	}
+]

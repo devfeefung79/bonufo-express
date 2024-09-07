@@ -1,0 +1,60 @@
+[
+	{
+		"_id": "62704489284c257466f0f8f1",
+		"topic": [
+			"Education"
+		],
+		"questionType": [
+			"Agree or Disagree"
+		],
+		"relatedExam": [
+			"IELTS General Training",
+			"IELTS Academic"
+		],
+		"question": "Write about the following topic: Everybody should be allowed admission to university or college programs regardless of their level of academic ability. To what extent do you agree or disagree with this statement? Give reasons for your answer and include any relevant examples from your own knowledge or experience. Write at least 250 words."
+	},
+	{
+		"_id": "628b07acfca14c127cc5e272",
+		"topic": [
+			"Employment"
+		],
+		"questionType": [
+			"Preference"
+		],
+		"relatedExam": [
+			"CELPIP"
+		],
+		"question": "Read the following information\n\rVacation Time or Job Training\n\rYou work in a small office. The boss wants to reduce vacation time by two days but send everyone in the office to a nice beachside hotel for 4 days of job training. Some of the staff are very happy with this idea. Others are upset. The boss asked you to respond to an opinion survey.\n\rChoose the option that you prefer. Why do you prefer your choice? Write about 150-200 words.\n\rOption A: I think we should keep our vacation time instead of going to the training.\n\rOption B: I think we should do the training and cut back our vacation time."
+	},
+	{
+		"_id": "62704489284c257466f0f8f0",
+		"topic": [
+			"Government"
+		],
+		"questionType": [
+			"Agree or Disagree"
+		],
+		"relatedExam": [
+			"TOEFL iBT",
+			"TOEFL PBT"
+		],
+		"question": "Reducing global environmental damage should be handled by governments rather than individuals. Do you agree or disagree? Give reasons for your answer and provide relevant examples from your own experience."
+	},
+	{
+		"_id": "62704489284c257466f0f8f2",
+		"topic": [
+			"Education",
+			"Government",
+			"Health"
+		],
+		"questionType": [
+			"Description / Explanation",
+			"Preference"
+		],
+		"relatedExam": [
+			"TOEFL iBT",
+			"TOEFL PBT"
+		],
+		"question": "Improvements in health, education, and trade are essential for the development of poorer nations. However, the governments of richer nations should take more responsibility for helping the poorer nations in such areas. Discuss both views, and give your opinion."
+	}
+]
